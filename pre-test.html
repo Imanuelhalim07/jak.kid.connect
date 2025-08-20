@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pre-Test Konvensi Hak Anak - Jak-Kid Connect</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <header class="header-container">
+      <div class="navbar container">
+        <div class="logo">
+          <a href="index.html"
+            ><img src="assets/images/logo.png" alt="Logo Jak-Kids Connect"
+          /></a>
+        </div>
+        <nav class="main-nav">
+          <ul class="nav-links">
+            <li class="nav-link beranda"><a href="index.html">Beranda</a></li>
+            <li class="nav-link tentang-kami">
+              <a href="tentang-kami.html">Tentang Kami</a>
+            </li>
+            <li class="nav-link kluster">
+              <a href="kluster-hak-anak.html">Kluster Hak Anak</a>
+            </li>
+            <li class="nav-link konvensi active">
+              <a href="konvensi-hak-anak.html">Konvensi Hak Anak</a>
+            </li>
+            <li class="nav-link kegiatan">
+              <a href="kegiatan-ramah-anak.html">Kegiatan Ramah Anak</a>
+            </li>
+            <li class="nav-link rptra">
+              <a href="cari-rptra.html">Cari RPTRA</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="hamburger" id="hamburger-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </header>
+
+    <nav class="mobile-menu" id="mobile-menu">
+      <a href="index.html">Beranda</a>
+      <a href="tentang-kami.html">Tentang Kami</a>
+      <a href="kluster-hak-anak.html">Kluster Hak Anak</a>
+      <a href="konvensi-hak-anak.html">Konvensi Hak Anak</a>
+      <a href="kegiatan-ramah-anak.html">Kegiatan Ramah Anak</a>
+      <a href="cari-rptra.html">Cari RPTRA</a>
+    </nav>
+
+    <main>
+      <section class="quiz-section">
+        <div class="container">
+          <h2 class="quiz-title konvensi-theme">Pre-Test Konvensi Hak Anak</h2>
+          <p class="quiz-intro">
+            Jawablah pertanyaan-pertanyaan di bawah ini. Tes ini bertujuan untuk
+            mengukur pemahaman awal Anda sebelum membaca materi.
+          </p>
+
+          <form id="quizForm"></form>
+
+          <div
+            id="quizResult"
+            class="quiz-result konvensi-theme"
+            style="display: none"
+          >
+            <h3>Hasil Pre-Test Anda:</h3>
+            <p id="scoreText"></p>
+            <button id="resetButton" class="btn konvensi-theme">
+              Ulangi Test
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <div class="footer-brand">
+          <img src="assets/images/logo.png" alt="Logo Jak-Kids Connect" />
+          <p>
+            Pusat informasi dan partisipasi untuk mewujudkan Jakarta sebagai
+            Kota Layak Anak.
+          </p>
+        </div>
+        <div class="footer-contact">
+          <h4>Hubungi Kami</h4>
+          <ul>
+            <li>
+              <i class="fas fa-map-marker-alt"></i>Jl. Medan Merdeka Barat
+              No.15, RT.2/RW.3, Gambir, Kecamatan Gambir, Kota Jakarta Pusat,
+              Daerah Khusus Ibukota Jakarta 10160
+            </li>
+            <li><i class="fas fa-phone"></i> 0812-1432-2413 (Aisyah)</li>
+            <li><i class="fas fa-envelope"></i> jak.kidconnect@gmail.com</li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h4>Ikuti Kami</h4>
+          <div class="social-icons">
+            <a
+              href="https://www.instagram.com/jak_kid.connect/"
+              target="_blank"
+            >
+              <img src="assets/images/instagram.png" alt="Instagram" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>&copy; 2025 Jak-Kid Connect. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const hamburgerMenu = document.getElementById("hamburger-menu");
+        const mobileMenu = document.getElementById("mobile-menu");
+        hamburgerMenu.addEventListener("click", () => {
+          mobileMenu.classList.toggle("active");
+          hamburgerMenu.classList.toggle("active");
+        });
+      });
+
+      const questions = [
+        {
+          question:
+            "Menurut Konvensi Hak Anak, yang dimaksud dengan anak adalah setiap orang yang berusia di bawah berapa tahun?",
+          options: ["12 tahun", "16 tahun", "18 tahun", "21 tahun"],
+          answer: "18 tahun",
+        },
+        {
+          question:
+            "Apakah setiap anak berhak untuk mendapatkan nama dan kewarganegaraan sejak lahir?",
+          options: [
+            "Ya, hak ini wajib dipenuhi",
+            "Tidak, itu tergantung kebijakan negara",
+            "Ya, tapi hanya untuk anak laki-laki",
+            "Tidak, itu bukan hak dasar",
+          ],
+          answer: "Ya, hak ini wajib dipenuhi",
+        },
+        {
+          question: "Apakah anak-anak berhak untuk bermain dan beristirahat?",
+          options: [
+            "Tidak, anak harus belajar terus",
+            "Ya, itu adalah hak mereka",
+            "Hanya jika tugas sekolah sudah selesai",
+            "Hanya saat akhir pekan",
+          ],
+          answer: "Ya, itu adalah hak mereka",
+        },
+        {
+          question:
+            "Hak anak yang berkaitan dengan mendapatkan makanan yang cukup, air bersih, dan tempat tinggal disebut hak apa?",
+          options: [
+            "Hak sipil",
+            "Hak perlindungan",
+            "Hak partisipasi",
+            "Hak kelangsungan hidup",
+          ],
+          answer: "Hak kelangsungan hidup",
+        },
+        {
+          question:
+            "Apakah anak yang memiliki perbedaan (misalnya suku, agama, atau warna kulit) tetap memiliki hak yang sama?",
+          options: [
+            "Tidak, haknya bisa berbeda",
+            "Tergantung pada mayoritas masyarakat",
+            "Ya, setiap anak memiliki hak yang sama tanpa diskriminasi",
+            "Hanya di negara-negara tertentu",
+          ],
+          answer: "Ya, setiap anak memiliki hak yang sama tanpa diskriminasi",
+        },
+        {
+          question:
+            "Apakah anak-anak berhak untuk mendapatkan perlindungan dari kekerasan, penelantaran, dan eksploitasi?",
+          options: [
+            "Tidak, itu tanggung jawab orang dewasa",
+            "Ya, negara harus melindungi anak",
+            "Tergantung jenis kekerasan",
+            "Hanya anak-anak tertentu",
+          ],
+          answer: "Ya, negara harus melindungi anak",
+        },
+        {
+          question:
+            "Jika seorang anak sakit, apakah ia berhak untuk mendapatkan layanan kesehatan?",
+          options: [
+            "Tidak, itu hak orang dewasa",
+            "Ya, itu adalah hak dasar anak",
+            "Hanya anak yang memiliki asuransi",
+            "Hanya penyakit tertentu",
+          ],
+          answer: "Ya, itu adalah hak dasar anak",
+        },
+        {
+          question: "Apakah anak-anak berhak untuk mendapatkan pendidikan?",
+          options: [
+            "Hanya untuk anak-anak cerdas",
+            "Hanya sampai tingkat SD",
+            "Ya, pendidikan adalah hak setiap anak",
+            "Tergantung kemampuan orang tua",
+          ],
+          answer: "Ya, pendidikan adalah hak setiap anak",
+        },
+        {
+          question:
+            "Apakah anak-anak memiliki hak untuk didengarkan pendapatnya?",
+          options: [
+            "Tidak, anak hanya perlu mendengarkan",
+            "Tergantung usia anak",
+            "Hanya dalam urusan keluarga",
+            "Ya, pendapat anak harus dihargai sesuai usia dan kematangan",
+          ],
+          answer: "Ya, pendapat anak harus dihargai sesuai usia dan kematangan",
+        },
+        {
+          question:
+            "Siapa yang bertanggung jawab utama untuk membesarkan dan mendidik anak?",
+          options: [
+            "Sekolah",
+            "Pemerintah",
+            "Orang tua dan keluarga",
+            "Tetangga",
+          ],
+          answer: "Orang tua dan keluarga",
+        },
+      ];
+
+      const quizForm = document.getElementById("quizForm");
+      const quizResult = document.getElementById("quizResult");
+      const scoreText = document.getElementById("scoreText");
+      const resetButton = document.getElementById("resetButton");
+
+      function renderQuiz() {
+        quizForm.innerHTML = ""; // Clear previous content
+        questions.forEach((q, index) => {
+          const questionDiv = document.createElement("div");
+          questionDiv.classList.add("quiz-question");
+
+          let optionsHtml = "";
+          q.options.forEach((option) => {
+            optionsHtml += `
+                        <label class="option-card">
+                            <input type="radio" name="q${index}" value="${option}" required>
+                            <span>${option}</span>
+                        </label>
+                    `;
+          });
+
+          questionDiv.innerHTML = `
+                    <p>${index + 1}. ${q.question}</p>
+                    <div class="options-grid">
+                        ${optionsHtml}
+                    </div>
+                `;
+          quizForm.appendChild(questionDiv);
+        });
+
+        const submitButton = document.createElement("button");
+        submitButton.type = "submit";
+        submitButton.classList.add("btn", "konvensi-theme");
+        submitButton.textContent = "Submit Jawaban";
+        quizForm.appendChild(submitButton);
+      }
+
+      function checkAnswers(event) {
+        event.preventDefault();
+        let score = 0;
+        const formElements = new FormData(quizForm);
+
+        questions.forEach((q, index) => {
+          const userAnswer = formElements.get(`q${index}`);
+          if (userAnswer === q.answer) {
+            score++;
+          }
+        });
+
+        quizForm.style.display = "none";
+        scoreText.textContent = `Anda berhasil menjawab ${score} dari ${questions.length} pertanyaan dengan benar.`;
+        quizResult.style.display = "block";
+      }
+
+      function resetQuiz() {
+        quizResult.style.display = "none";
+        quizForm.style.display = "block";
+        quizForm.reset();
+        renderQuiz();
+      }
+
+      // Event listeners
+      quizForm.addEventListener("submit", checkAnswers);
+      resetButton.addEventListener("click", resetQuiz);
+
+      // Initial render
+      renderQuiz();
+    </script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

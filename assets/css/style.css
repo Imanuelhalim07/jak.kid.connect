@@ -1,0 +1,1249 @@
+/* ====================================
+   General & Global Styles
+   ==================================== */
+:root {
+  --primary-blue: #1976d2;
+  --light-blue: #90caf9;
+  --primary-red: #dc3545;
+  --primary-yellow: #ffc107;
+  --primary-green: #28a745;
+  --orange-footer: #f7b731;
+  --white: #ffffff;
+  --dark-grey: #333;
+  --light-grey: #f4f4f4;
+  --purple: #800080;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.2);
+  --shadow-dark: rgba(0, 0, 0, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: var(--white);
+  color: var(--dark-grey);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Focus styles for accessibility */
+*:focus {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+/* ====================================
+   Header & Navigation
+   ==================================== */
+.header-container {
+  background-color: var(--white);
+  padding: 15px 0;
+  box-shadow: 0 2px 10px var(--shadow-light);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+}
+
+.nav-link a {
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5px 0;
+  color: var(--dark-grey);
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-link a:hover::after,
+.nav-link a:focus::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-link.beranda a:hover,
+.nav-link.beranda a:focus {
+  color: var(--dark-grey);
+}
+.nav-link.beranda a:hover::after,
+.nav-link.beranda a:focus::after {
+  background-color: var(--dark-grey);
+}
+
+.nav-link.tentang-kami a:hover,
+.nav-link.tentang-kami a:focus {
+  color: var(--dark-grey);
+}
+.nav-link.tentang-kami a:hover::after,
+.nav-link.tentang-kami a:focus::after {
+  background-color: var(--dark-grey);
+}
+
+.nav-link.kluster a:hover,
+.nav-link.kluster a:focus {
+  color: var(--primary-blue);
+}
+.nav-link.kluster a:hover::after,
+.nav-link.kluster a:focus::after {
+  background-color: var(--primary-blue);
+}
+
+.nav-link.konvensi a:hover,
+.nav-link.konvensi a:focus {
+  color: var(--primary-red);
+}
+.nav-link.konvensi a:hover::after,
+.nav-link.konvensi a:focus::after {
+  background-color: var(--primary-red);
+}
+
+.nav-link.kegiatan a:hover,
+.nav-link.kegiatan a:focus {
+  color: var(--primary-yellow);
+}
+.nav-link.kegiatan a:hover::after,
+.nav-link.kegiatan a:focus::after {
+  background-color: var(--primary-yellow);
+}
+
+.nav-link.rptra a:hover,
+.nav-link.rptra a:focus {
+  color: var(--primary-green);
+}
+.nav-link.rptra a:hover::after,
+.nav-link.rptra a:focus::after {
+  background-color: var(--primary-green);
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  transition: all 0.3s ease;
+  z-index: 101;
+}
+
+.hamburger .bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--dark-grey);
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+/* Animasi Hamburger saat aktif */
+.hamburger.is-active .bar:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+.hamburger.is-active .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.is-active .bar:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background-color: var(--white);
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 4px 8px var(--shadow-light);
+  padding: 10px 0;
+  z-index: 99;
+}
+
+.mobile-menu.is-active {
+  display: flex;
+}
+
+.mobile-menu a {
+  padding: 15px 20px;
+  text-decoration: none;
+  color: var(--dark-grey);
+  border-bottom: 1px solid var(--light-grey);
+  transition: background-color 0.3s ease;
+}
+
+.mobile-menu a:hover,
+.mobile-menu a:focus {
+  background-color: var(--light-grey);
+}
+
+/* ====================================
+   Main Content Sections
+   ==================================== */
+main {
+  padding: 40px 0;
+  background-color: var(--white);
+  flex: 1;
+}
+
+/* ====================================
+   Homepage (index.php)
+   ==================================== */
+.hero-section {
+  padding: 100px 0;
+  text-align: center;
+  background-color: #fcf9f2;
+  transition: background-color 0.5s ease;
+}
+
+.hero-title {
+  font-size: 3.5em;
+  font-weight: 700;
+  color: var(--primary-blue);
+  display: block;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.hero-title:hover {
+  background-color: var(--primary-blue);
+  color: var(--light-blue);
+}
+
+.hero-subtitle {
+  font-size: 1.5em;
+  color: var(--dark-grey);
+  margin-bottom: 10px;
+}
+
+.hero-description {
+  font-size: 1.1em;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: justify;
+}
+
+.features-section {
+  padding: 40px 0;
+  background-color: var(--white);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+/* Hapus kelas yang tidak perlu (kluster, konvensi, dst) karena sudah ada di HTML */
+.feature-card {
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--white); /* Tambahkan agar warna teks tetap putih */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Perbaikan: Atur warna latar belakang langsung dari HTML atau tambahkan kelas universal */
+.feature-card.blue {
+  background-color: var(--primary-blue);
+}
+.feature-card.red {
+  background-color: var(--primary-red);
+}
+.feature-card.yellow {
+  background-color: var(--primary-yellow);
+}
+.feature-card.green {
+  background-color: var(--primary-green);
+}
+
+.feature-card:hover,
+.feature-card:focus {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px var(--shadow-medium);
+}
+
+.feature-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: var(--white); /* Pastikan judul juga putih */
+}
+
+.feature-card p {
+  color: var(--white);
+  text-align: justify;
+}
+
+/* ====================================
+   Tentang Kami Page (tentang-kami.php)
+   ==================================== */
+.about-section {
+  background-color: var(--white);
+  padding: 40px 0;
+}
+
+.about-title {
+  font-size: 2.5em;
+  color: var(--dark-grey);
+  text-align: center;
+  margin-bottom: 40px;
+  transition: color 0.3s ease;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.about-card {
+  padding: 30px;
+  border-radius: 10px;
+  color: var(--white);
+}
+
+.about-card.visi {
+  background-color: var(--primary-blue);
+}
+.about-card.misi {
+  background-color: var(--primary-red);
+}
+.about-card.tujuan {
+  background-color: var(--primary-green);
+}
+
+.about-card h3 {
+  color: var(--white);
+  margin-bottom: 15px;
+}
+
+.about-card ol,
+.about-card ul {
+  list-style: none;
+  padding-left: 0;
+  color: var(--white);
+  text-align: justify;
+}
+
+.about-card li {
+  margin-bottom: 5px;
+}
+
+.about-illustration {
+  text-align: justify;
+}
+
+.about-illustration img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* ====================================
+   Tim Kami Section (Diperbarui)
+   ==================================== */
+.team-section {
+  padding: 60px 0;
+  background-color: var(--light-grey);
+}
+
+.team-title {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 2.8rem;
+  color: var(--dark-grey);
+  font-weight: 700;
+}
+
+.team-member {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.team-member:last-child {
+  margin-bottom: 0;
+}
+
+.team-photo {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 7px solid var(--white);
+  box-shadow: 0 5px 15px var(--shadow-medium);
+}
+
+.team-description {
+  flex: 1;
+}
+
+.team-description h3 {
+  font-size: 2rem;
+  color: var(--primary-blue);
+  margin-bottom: 10px;
+}
+
+.team-description h4 {
+  font-size: 1.4rem;
+  color: #666;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.team-description p {
+  line-height: 1.7;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.team-member.founder .team-description {
+  text-align: justify;
+}
+
+.team-member.co-founder .team-description {
+  text-align: justify;
+}
+
+/* ====================================
+   Kluster Hak Anak Page (kluster-hak-anak.php)
+   ==================================== */
+.cluster-section {
+  padding: 40px 0;
+  text-align: justify;
+}
+
+.cluster-title {
+  font-size: 2.5em;
+  text-align: center;
+  color: var(--primary-blue);
+  margin-bottom: 20px;
+}
+
+.cluster-intro {
+  text-align: justify;
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  color: var(--dark-grey);
+}
+
+.cluster-list-accordion {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.accordion-container {
+  margin-bottom: 15px;
+}
+
+.unicef-accordion-button {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  cursor: pointer;
+  padding: 20px 25px;
+  width: 100%;
+  text-align: justify;
+  border: none;
+  outline: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 1.5em;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.unicef-accordion-button.blue-theme {
+  background-color: var(--primary-blue);
+}
+
+.unicef-accordion-button:hover,
+.unicef-accordion-button:focus {
+  background-color: #1565c0;
+}
+
+.unicef-accordion-button::after {
+  content: "\002B";
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--white);
+  transition: transform 0.3s ease;
+}
+
+.unicef-accordion.active .unicef-accordion-button {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.unicef-accordion.active .unicef-accordion-button.blue-theme {
+  background-color: var(--primary-blue);
+}
+
+.unicef-accordion.active .unicef-accordion-button::after {
+  content: "\2212";
+  color: var(--white);
+}
+
+.accordion-content {
+  background-color: var(--white);
+  color: var(--dark-grey);
+  padding: 20px 25px;
+  max-height: none;
+  overflow: auto;
+  overflow-y: visible;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  text-align: justify;
+  border: 1px solid transparent;
+  border-top: none;
+  border-radius: 8px;
+  text-align: justify;
+}
+.unicef-accordion.active .accordion-content {
+  padding: 25px;
+  max-height: 2000px;
+  overflow-y: auto;
+  border-color: var(--primary-blue);
+}
+.accordion-content p,
+.accordion-content ul {
+  margin-bottom: 15px;
+  line-height: 1.8;
+}
+.accordion-content li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* ====================================
+   Konvensi Hak Anak Page (konvensi-hak-anak.php)
+   ==================================== */
+.convention-section {
+  padding: 60px 0;
+  text-align: center;
+}
+.convention-title {
+  color: var(--primary-red);
+  font-size: 2.5em;
+  margin-bottom: 15px;
+}
+.convention-intro {
+  max-width: 800px;
+  margin: 0 auto 50px auto;
+  color: var(--dark-grey);
+  text-align: justify;
+}
+.convention-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.unicef-accordion-button {
+  background-color: var(--primary-red);
+  color: var(--white);
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: justify;
+  border: none;
+  outline: none;
+  transition: background-color 0.3s ease;
+  font-size: 1.5em;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+.unicef-accordion-button:hover,
+.unicef-accordion-button:focus {
+  background-color: #c82333;
+}
+.unicef-accordion-button::after {
+  content: "\002B";
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--white);
+  transition: transform 0.3s ease;
+}
+.unicef-accordion.active .unicef-accordion-button {
+  background-color: var(--primary-red);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.unicef-accordion.active .unicef-accordion-button::after {
+  content: "\2212";
+}
+.accordion-content {
+  background-color: #fff;
+  color: var(--dark-grey);
+  padding: 0px 25px;
+  max-height: 0;
+  overflow: auto;
+  overflow-y: visible;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  text-align: justify;
+  border: 1px solid transparent;
+  border-top: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.unicef-accordion.active .accordion-content {
+  padding: 25px;
+  max-height: 1000px;
+  overflow-y: auto;
+  border-color: var(--primary-red);
+}
+.test-buttons {
+  margin: 50px 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.btn.konvensi-theme {
+  background-color: var(--primary-red);
+  color: var(--white);
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.1em;
+  border-radius: 25px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn.konvensi-theme:hover,
+.btn.konvensi-theme:focus {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+.accordion-content p,
+.accordion-content ul {
+  margin-bottom: 10px;
+}
+
+/* ====================================
+   Quiz Styles (Pre-Test & Post-Test)
+   ==================================== */
+.quiz-section {
+  padding: 40px 0;
+  text-align: center;
+}
+.quiz-title.konvensi-theme {
+  color: var(--primary-red);
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+.quiz-intro {
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  color: var(--dark-grey);
+}
+.quiz-question {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: justify;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+.quiz-question p {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.option-card {
+  display: flex;
+  align-items: center;
+  background-color: #f8f8f8;
+  border: 1px solid #eee;
+  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.option-card:hover,
+.option-card:focus {
+  background-color: #f1f1f1;
+}
+.option-card input[type="radio"] {
+  margin-right: 15px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+.option-card input[type="radio"]:checked + span {
+  color: var(--primary-red);
+  font-weight: bold;
+}
+.btn.konvensi-theme {
+  background-color: var(--primary-red);
+  color: var(--white);
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.1em;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn.konvensi-theme:hover,
+.btn.konvensi-theme:focus {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+.quiz-result.konvensi-theme {
+  background-color: #fff;
+  border: 2px solid var(--primary-red);
+  border-radius: 10px;
+  padding: 30px;
+  margin-top: 40px;
+  text-align: center;
+  box-shadow: 0 4px 12px var(--shadow-light);
+}
+.quiz-result h3 {
+  color: var(--primary-red);
+  margin-bottom: 10px;
+}
+.quiz-result p {
+  font-size: 1.2em;
+  color: var(--dark-grey);
+}
+
+/* ====================================
+   Kegiatan Ramah Anak Page (kegiatan-ramah-anak.php)
+   ==================================== */
+.activities-section {
+  background-color: var(--white);
+  padding: 40px 0;
+}
+.activities-title {
+  font-size: 2.5em;
+  text-align: center;
+  color: var(--primary-yellow);
+  margin-bottom: 20px;
+}
+.activities-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+.activity-item {
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.activity-item:hover,
+.activity-item:focus {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px var(--shadow-light);
+}
+.activity-item h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--primary-yellow);
+}
+.activity-item p {
+  margin-bottom: 5px;
+  text-align: justify;
+}
+.activity-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  margin-top: 10px;
+  border-radius: 5px;
+  display: block;
+}
+
+/* ====================================
+   Cari RPTRA Page (cari-rptra.php)
+   ==================================== */
+.container-rptra {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.cari-rptra-title {
+  font-size: 2.5em;
+  text-align: center;
+  color: var(--primary-green);
+  margin-bottom: 20px;
+}
+
+/* Filter buttons for RPTRA */
+.filter-buttons {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.filter-btn {
+  background-color: var(--light-grey);
+  color: var(--dark-grey);
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: 500;
+  margin: 5px;
+}
+
+.filter-btn:hover,
+.filter-btn:focus {
+  background-color: var(--primary-green);
+  color: var(--white);
+}
+
+.filter-btn.active {
+  background-color: var(--primary-green);
+  color: var(--white);
+  border: 1px solid var(--primary-green);
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  gap: 10px;
+}
+
+.search-box input {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  font-size: 1em;
+  outline: none;
+  transition: border-color 0.3s ease;
+  background-color: var(--white);
+  color: var(--dark-grey);
+}
+.search-box input:focus {
+  border-color: var(--primary-green);
+}
+
+.search-box button {
+  padding: 12px 25px;
+  border-radius: 25px;
+  border: none;
+  background-color: var(--primary-green);
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.search-box button:hover,
+.search-box button:focus {
+  background-color: #1e7e34;
+}
+
+.rptra-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.rptra-card {
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--white);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: var(--dark-grey);
+}
+
+.rptra-card h3 {
+  color: #008000;
+  text-decoration: none;
+}
+
+.rptra-card h3:hover {
+  text-decoration: none;
+}
+
+.rptra-card a {
+  text-decoration: none;
+}
+
+.rptra-card:hover,
+.rptra-card:focus {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px var(--shadow-light);
+}
+
+.rptra-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.rptra-info {
+  padding: 20px;
+}
+
+.rptra-info h3 {
+  font-size: 1.5em;
+  color: var(--primary-green);
+  margin-bottom: 10px;
+}
+
+.rptra-info p {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+/* ====================================
+   Modal RPTRA
+   ==================================== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 200;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 5px 15px var(--shadow-dark);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rptra-image {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.modal-details h3 {
+  margin-top: 0;
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.modal-close {
+  color: var(--dark-grey);
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: var(--primary-red);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content h3 {
+  color: var(--primary-green);
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  margin-bottom: 5px;
+}
+
+/* ====================================
+   Footer
+   ==================================== */
+.footer {
+  background-color: var(--orange-footer);
+  color: var(--white);
+  padding: 40px 0 20px 0;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+}
+
+.footer-brand,
+.footer-contact,
+.footer-social {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-brand img {
+  height: 60px;
+  margin-bottom: 15px;
+  background-color: var(--orange-footer);
+  border-radius: 50%;
+}
+
+.footer-contact h4,
+.footer-social h4 {
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.footer-contact ul {
+  list-style: none;
+}
+
+.footer-contact li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+}
+
+.footer-contact i {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--orange-footer);
+}
+
+.footer-copyright {
+  text-align: center;
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ====================================
+   Responsive Design
+   ==================================== */
+@media (max-width: 1200px) {
+  .nav-links {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+
+  .about-content {
+    flex-direction: column;
+  }
+
+  .about-card {
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-size: 2.5em;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2em;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-member {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .team-member.co-founder {
+    flex-direction: column;
+  }
+
+  .team-photo {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 25px;
+    order: 1;
+  }
+
+  .team-description {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    order: 2;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .search-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-box input {
+    max-width: 100%;
+  }
+
+  .rptra-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .activities-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .hero-section {
+    padding: 60px 0;
+  }
+
+  .hero-title {
+    font-size: 2em;
+  }
+
+  .feature-card {
+    padding: 20px;
+  }
+
+  .modal-content {
+    padding: 20px;
+    width: 95%;
+  }
+}
+
+/* Print styles */
+@media print {
+  .header-container,
+  .footer,
+  .hamburger,
+  .mobile-menu {
+    display: none;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  .hero-section,
+  .features-section,
+  .about-section,
+  .team-section,
+  .cluster-section,
+  .convention-section,
+  .activities-section,
+  .container-rptra {
+    padding: 20px 0;
+  }
+}

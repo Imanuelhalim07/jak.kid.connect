@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cari RPTRA - Jak-Kid Connect</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="header-container">
+      <div class="navbar container">
+        <div class="logo">
+          <a href="index.html"
+            ><img src="assets/images/logo.png" alt="Logo Jak-Kids Connect"
+          /></a>
+        </div>
+        <nav class="main-nav">
+          <ul class="nav-links">
+            <li class="nav-link beranda"><a href="index.html">Beranda</a></li>
+            <li class="nav-link tentang-kami">
+              <a href="tentang-kami.html">Tentang Kami</a>
+            </li>
+            <li class="nav-link kluster">
+              <a href="kluster-hak-anak.html">Kluster Hak Anak</a>
+            </li>
+            <li class="nav-link konvensi">
+              <a href="konvensi-hak-anak.html">Konvensi Hak Anak</a>
+            </li>
+            <li class="nav-link kegiatan">
+              <a href="kegiatan-ramah-anak.html">Kegiatan Ramah Anak</a>
+            </li>
+            <li class="nav-link rptra active">
+              <a href="cari-rptra.html">Cari RPTRA</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="hamburger" id="hamburger-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </header>
+
+    <nav class="mobile-menu" id="mobile-menu">
+      <a href="index.html">Beranda</a>
+      <a href="tentang-kami.html">Tentang Kami</a>
+      <a href="kluster-hak-anak.html">Kluster Hak Anak</a>
+      <a href="konvensi-hak-anak.html">Konvensi Hak Anak</a>
+      <a href="kegiatan-ramah-anak.html">Kegiatan Ramah Anak</a>
+      <a href="cari-rptra.html">Cari RPTRA</a>
+    </nav>
+
+    <main>
+      <section class="container container-rptra">
+        <h1 class="cari-rptra-title">Cari RPTRA</h1>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="semua">
+            Semua Wilayah
+          </button>
+          <button class="filter-btn" data-filter="jakpus">Jakarta Pusat</button>
+          <button class="filter-btn" data-filter="jakut">Jakarta Utara</button>
+          <button class="filter-btn" data-filter="jakbar">Jakarta Barat</button>
+          <button class="filter-btn" data-filter="jaksel">
+            Jakarta Selatan
+          </button>
+          <button class="filter-btn" data-filter="jaktim">Jakarta Timur</button>
+          <button class="filter-btn" data-filter="kepulauan-seribu">
+            Kepulauan Seribu
+          </button>
+        </div>
+        <div class="search-box">
+          <input type="text" placeholder="Cari RPTRA..." id="searchRptra" />
+        </div>
+        <div class="rptra-grid" id="rptraList"></div>
+      </section>
+    </main>
+
+    <div id="rptraModal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <div class="modal-body">
+          <img
+            id="modalRptraImage"
+            src=""
+            alt="Foto RPTRA"
+            class="rptra-image"
+          />
+          <div class="modal-details">
+            <h3 id="modalRptraName"></h3>
+            <p><strong>Alamat:</strong> <span id="modalRptraAddress"></span></p>
+            <p>
+              <strong>Fasilitas:</strong>
+              <span id="modalRptraFacilities"></span>
+            </p>
+            <p>
+              <strong>Jam Operasional:</strong>
+              <span id="modalRptraOperationalHours"></span>
+            </p>
+            <p>
+              <strong>Kontak Pengelola:</strong>
+              <span id="modalRptraContact"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <div class="footer-brand">
+          <img src="assets/images/logo.png" alt="Logo Jak-Kids Connect" />
+          <p>
+            Pusat informasi dan partisipasi untuk mewujudkan Jakarta sebagai
+            Kota Layak Anak.
+          </p>
+        </div>
+        <div class="footer-contact">
+          <h4>Hubungi Kami</h4>
+          <ul>
+            <li>
+              <i class="fas fa-map-marker-alt"></i>Jl. Medan Merdeka Barat
+              No.15, RT.2/RW.3, Gambir, Kecamatan Gambir, Kota Jakarta Pusat,
+              Daerah Khusus Ibukota Jakarta 10160
+            </li>
+            <li><i class="fas fa-phone"></i> 0812-1432-2413 (Aisyah)</li>
+            <li><i class="fas fa-envelope"></i> jak.kidconnect@gmail.com</li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h4>Ikuti Kami</h4>
+          <div class="social-icons">
+            <a
+              href="https://www.instagram.com/jak_kid.connect/"
+              target="_blank"
+            >
+              <img src="assets/images/instagram.png" alt="Instagram" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>&copy; 2025 Jak-Kid Connect. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
